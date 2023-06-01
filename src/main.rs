@@ -1,9 +1,7 @@
 use std::{collections::HashMap, io};
 
-mod action;
-mod convert;
-mod error;
-mod modify;
+use company_employee_registry::{action, convert, error};
+
 fn main() {
     let mut company_registry: HashMap<String, Vec<String>> = HashMap::new();
     loop {
@@ -13,7 +11,7 @@ fn main() {
             convert::ActionType::AddEmployee { name, department } => {
                 action::add_employee(name, department, &mut company_registry)
             }
-            convert::ActionType::GetDepartment { with_name: of_type } => {
+            convert::ActionType::GetDepartment { of_type } => {
                 action::print_employees(of_type, &company_registry)
             }
             convert::ActionType::Invalid { action_name } => error::illegal_action(&action_name),
