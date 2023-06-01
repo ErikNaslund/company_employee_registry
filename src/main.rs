@@ -26,14 +26,3 @@ fn prompt_user_input() -> Vec<String> {
     io::stdin().read_line(&mut input).unwrap();
     input.split_whitespace().map(|s| s.to_string()).collect()
 }
-
-// fn exectue_action(action: actions::ActionType, company_registry: &HashMap<String, Vec<String>>) {
-//     match action {
-//         actions::ActionType::Add => {
-//             let action = actions::parse::employee(action);
-//             actions::add::employee(action.name, action.department, &mut company_registry);
-//         }
-//         actions::ActionType::Get => actions::parse::get_request_type(&command),
-//         _ => error::illegal_action(&action),
-//     }
-// }
