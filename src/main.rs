@@ -10,10 +10,10 @@ fn main() {
         let mut command = prompt_user_input();
         let action = convert::command_to_action(&mut command);
         match action {
-            convert::ActionType::Add { name, department } => {
+            convert::ActionType::AddEmployee { name, department } => {
                 action::add_employee(name, department, &mut company_registry)
             }
-            convert::ActionType::Get { of_type } => {
+            convert::ActionType::GetDepartment { with_name: of_type } => {
                 action::print_employees(of_type, &company_registry)
             }
             convert::ActionType::Invalid { action_name } => error::illegal_action(&action_name),
